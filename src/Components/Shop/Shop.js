@@ -6,7 +6,7 @@ import Product from "../Product-single-card/Product";
 
 // main rendering part here
 const Shop = () => {
-  const [product, setProduct] = useState([]);
+  const [products, setProduct] = useState([]);
 
   useEffect(() => {
     fetch("products.json")
@@ -14,13 +14,18 @@ const Shop = () => {
       .then((data) => setProduct(data));
   }, []);
 
+  // event handler added to update cart
+  const handleAddToCart = (id) => {
+    console.log(id);
+  };
+
   return (
     // main section under navbar
     <section className="main-container">
       {/* Only product parts */}
       <div className="product-container">
-        {product.map((shoe) => (
-          <Product key={shoe.id} shoe={shoe}></Product>
+        {products.map((product) => (
+          <Product key={product.id} product={product} handleAddToCart={handleAddToCart}></Product>
         ))}
       </div>
 
