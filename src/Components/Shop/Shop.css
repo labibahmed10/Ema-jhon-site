@@ -1,7 +1,6 @@
 .main-container {
   display: grid;
   grid-template-columns: 4fr 1fr;
-  /* position: relative; */
 }
 
 .product-container {
@@ -10,11 +9,4 @@
   gap: 45px;
   place-items: center;
   padding-top: 50px;
-}
-
-.cart-container {
-  background-color: aqua;
-  position: absolute;
-  position: sticky;
-  top: 0;
 }
