@@ -1,9 +1,27 @@
-import React from 'react';
+import "./Product.css";
+import React from "react";
 
-const Product = () => {
+// font awesome part
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
+
+// main rendering here
+const Product = (props) => {
+  console.log(props);
+
+  const { img, name, price, seller, ratings } = props.shoe;
   return (
-    <div>
-      
+    <div className="cards">
+      <img src={img} alt="" />
+      <div className="card-details">
+        <h1>{name.length > 10 ? name.slice(0, 16) : name}</h1>
+        <h4>Price : {price}$</h4>
+        <p>Manufacturer : {seller} </p>
+        <p>Rating : {ratings} </p>
+      </div>
+      <button>
+        Add to Cart <FontAwesomeIcon icon={faCartPlus}></FontAwesomeIcon>
+      </button>
     </div>
   );
 };
