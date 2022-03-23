@@ -6,6 +6,7 @@ import Product from "../Product-single-card/Product";
 
 // main rendering part here
 const Shop = () => {
+  // products card state here
   const [products, setProduct] = useState([]);
 
   useEffect(() => {
@@ -14,9 +15,13 @@ const Shop = () => {
       .then((data) => setProduct(data));
   }, []);
 
+  //sideline cart state here
+  const [cart, setCart] = useState([]);
+
   // event handler added to update cart
-  const handleAddToCart = (id) => {
-    console.log(id);
+  const handleAddToCart = (product) => {
+    const newCart = [...cart, product];
+    setCart(newCart);
   };
 
   return (
@@ -31,7 +36,8 @@ const Shop = () => {
 
       {/* cart part right side */}
       <div className="cart-container">
-        <Cart></Cart>
+        {/* sending cart information */}
+        <Cart cart={cart}></Cart>
       </div>
     </section>
   );
