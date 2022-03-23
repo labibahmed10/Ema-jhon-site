@@ -1,0 +1,23 @@
+.navbar {
+  background-color: rgba(28, 43, 53, 1);
+  padding: 10px 100px;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.links a {
+  text-decoration: none;
+  color: aliceblue;
+  margin-right: 1.3rem;
+  font-size: 1.1em;
+}
+
+.links a:last-child {
+  margin-right: 0;
+}
+
+.links a:hover {
+  color: rgba(255, 153, 0, 1);
+}
