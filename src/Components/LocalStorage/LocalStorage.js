@@ -1,4 +1,4 @@
-const getStoredCard = () => {
+const getStoredCart = () => {
   let localStrgValue = {}; //local storage er value
 
   const localValue = localStorage.getItem("shopping_cart");
@@ -11,7 +11,7 @@ const getStoredCard = () => {
 };
 
 const localDB = (id) => {
-  let localStrgValue = getStoredCard();
+  let localStrgValue = getStoredCart();
 
   const itemQuantity = localStrgValue[id];
 
@@ -24,4 +24,4 @@ const localDB = (id) => {
   localStorage.setItem("shopping_cart", JSON.stringify(localStrgValue));
 };
 
-export { localDB, getStoredCard };
+export { localDB, getStoredCart };

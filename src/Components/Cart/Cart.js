@@ -8,18 +8,28 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 // main part rendering here
 const Cart = ({ cart }) => {
-  const shoePrice = cart.reduce((prev, curr) => prev + curr.price, 0);
-  const ShippingCost = cart.reduce((prev, curr) => prev + curr.shipping, 0);
-  const tax = parseFloat((shoePrice * 0.1).toFixed(2));
-  const grandTotal = shoePrice + ShippingCost + tax;
+  console.log(cart);
+
+  const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
+
+  const singlePrice = cart.reduce((prev, curr) => prev + curr.price, 0);
+
+  const mainPrice = quantity * singlePrice;
+
+  const singleShippingCost = cart.reduce((prev, curr) => prev + curr.shipping, 0);
+
+  const mainShippingCost = quantity * singleShippingCost;
+
+  const tax = parseFloat((mainPrice * 0.1).toFixed(2));
+  const grandTotal = mainPrice + mainShippingCost + tax;
 
   return (
     <section className="main-cart">
       <div className="info-container">
         <h1>Order Summary</h1>
-        <p>Selected Item : {cart.length}</p>
-        <p>Total Price : {shoePrice}$</p>
-        <p>Total Shipping Price : {ShippingCost}$</p>
+        <p>Selected Item : {quantity}</p>
+        <p>Total Price : {mainPrice}$</p>
+        <p>Total Shipping Price : {mainShippingCost}$</p>
         <p>Tax : {tax}$</p>
         <h2>Grand Total : {grandTotal}$</h2>
 

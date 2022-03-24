@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 // Components
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
-import { getStoredCard, localDB } from "../LocalStorage/LocalStorage";
+import { getStoredCart, localDB } from "../LocalStorage/LocalStorage";
 
 // main rendering part here
 const Shop = () => {
@@ -21,7 +21,6 @@ const Shop = () => {
 
   // event handler added to update cart
   const handleAddToCart = (product) => {
-    console.log(product.id);
     const newCart = [...cart, product];
     setCart(newCart);
     localDB(product.id);
@@ -30,18 +29,24 @@ const Shop = () => {
   // using useEffect to find local storage value
   useEffect(() => {
     // taken value of local storage value
-    const storedCart = getStoredCard();
+    const storedCart = getStoredCart();
 
+    // declaring newcart to sent it to local storage
     const newSavedCart = [];
+
+    // looping through every stored card
     for (const id in storedCart) {
+      // finding added product from local storage comparing to local storage
       const addedProduct = products.find((product) => product.id === id);
+
       if (addedProduct) {
         const quantity = storedCart[id];
         addedProduct.quantity = quantity;
         newSavedCart.push(addedProduct);
       }
-      setCart(newSavedCart);
     }
+    // it's better to saving set new cart after looping
+    setCart(newSavedCart);
   }, [products]);
 
   return (
