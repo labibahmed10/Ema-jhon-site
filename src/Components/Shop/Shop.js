@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 // Components
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
+import { localDB } from "../LocalStorage/LocalStorage";
 
 // main rendering part here
 const Shop = () => {
@@ -22,6 +23,7 @@ const Shop = () => {
   const handleAddToCart = (product) => {
     const newCart = [...cart, product];
     setCart(newCart);
+    localDB(product.id);
   };
 
   return (

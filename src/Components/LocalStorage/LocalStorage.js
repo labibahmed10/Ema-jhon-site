@@ -1,11 +1,17 @@
-const localDB = (id) => {
-  let localStrgValue = {};
+const getStoredCard = () => {
+  let localStrgValue = {}; //local storage er value
 
   const localValue = localStorage.getItem("shopping_cart");
 
   if (localValue) {
     localStrgValue = JSON.parse(localValue);
   }
+
+  return localStrgValue; //local storage er object ta ke return korlam parse kore
+};
+
+const localDB = (id) => {
+  let localStrgValue = getStoredCard();
 
   const itemQuantity = localStrgValue[id];
 
@@ -18,6 +24,4 @@ const localDB = (id) => {
   localStorage.setItem("shopping_cart", JSON.stringify(localStrgValue));
 };
 
-localDB();
-
-export { localDB };
+export { localDB, getStoredCard };
