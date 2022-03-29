@@ -4,7 +4,6 @@ import React from "react";
 // font awesome part
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
 
 // main rendering here
 const Product = ({ product, handleAddToCart }) => {

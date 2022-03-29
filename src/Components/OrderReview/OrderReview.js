@@ -1,11 +1,10 @@
 import React from "react";
-import Cart from "../Cart/Cart";
 
 const OrderReview = () => {
   return (
     <section>
       {/* <Cart></Cart> */}
-      <h1>Haa bhai kaisi lagi agayai swad!😂</h1>
+      <h1>Hello Bangladesh</h1>
     </section>
   );
 };

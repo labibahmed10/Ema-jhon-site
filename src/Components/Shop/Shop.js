@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
 import { getStoredCart, localDB } from "../LocalStorage/LocalStorage";
-import OrderReview from "../OrderReview/OrderReview";
 
 // main rendering part here
 const Shop = () => {
