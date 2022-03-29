@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  height: 85vh;
+  margin-top: 15%;
 }
 
 .info p {

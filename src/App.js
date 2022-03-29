@@ -7,6 +7,7 @@ import "aos/dist/aos.css";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/HomePage/Home";
 import NotFound from "./Components/NotFound/NotFound";
+import OrderReview from "./Components/OrderReview/OrderReview";
 
 function App() {
   useEffect(() => {
@@ -18,8 +19,13 @@ function App() {
       <Header></Header>
 
       <Routes>
+        <Route path="/" element={<Home></Home>}></Route>
         <Route path="/home" element={<Home></Home>}></Route>
+
         <Route path="/order" element={<Shop></Shop>}></Route>
+
+        <Route path="/review" element={<OrderReview></OrderReview>}></Route>
+
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

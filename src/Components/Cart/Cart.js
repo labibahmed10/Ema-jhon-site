@@ -5,13 +5,13 @@ import "./Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 // main part rendering here
 const Cart = ({ cart }) => {
   // console.log(cart);
 
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
-
   const singlePrice = cart.reduce((prev, curr) => prev + curr.price, 0);
 
   const mainPrice = quantity * singlePrice;
@@ -37,9 +37,9 @@ const Cart = ({ cart }) => {
           Clear Cart <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
         </button>
 
-        <button className="btn-2">
+        <Link to="/review" className="btn-2">
           Review Order <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
-        </button>
+        </Link>
       </div>
     </section>
   );
