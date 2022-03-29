@@ -23,5 +23,5 @@ const localDB = (id) => {
 
   localStorage.setItem("shopping_cart", JSON.stringify(localStrgValue));
 };
-
+  
 export { localDB, getStoredCart };

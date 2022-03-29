@@ -2,9 +2,11 @@ import "./App.css";
 import Header from "./Components/Header/Header";
 import Shop from "./Components/Shop/Shop";
 import { useEffect } from "react";
-
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/HomePage/Home";
+import NotFound from "./Components/NotFound/NotFound";
 
 function App() {
   useEffect(() => {
@@ -14,7 +16,13 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <Shop></Shop>
+
+      <Routes>
+        {/* <Route path="/home" element={<Home></Home>}></Route> */}
+        <Route path="/home" element={<Shop></Shop>}></Route>
+        <Route path="/order" element={<Home></Home>}></Route>
+        <Route path="*" element={<NotFound></NotFound>}></Route>
+      </Routes>
     </div>
   );
 }

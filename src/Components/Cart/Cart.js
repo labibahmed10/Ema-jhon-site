@@ -8,7 +8,7 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 // main part rendering here
 const Cart = ({ cart }) => {
-  console.log(cart);
+  // console.log(cart);
 
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
 

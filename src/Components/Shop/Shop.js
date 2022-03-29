@@ -20,10 +20,22 @@ const Shop = () => {
   const [cart, setCart] = useState([]);
 
   // event handler added to update cart
-  const handleAddToCart = (product) => {
-    const newCart = [...cart, product];
+  const handleAddToCart = (individualProduct) => {
+    let newCart = [];
+    const existingProduct = cart.find((product) => product.id === individualProduct.id);
+    // console.log(existingProduct.id);
+    if (!existingProduct) {
+      individualProduct.quantity = 1;
+      newCart = [...cart, individualProduct];
+    } else {
+      // individualProduct.quantity += 1;
+      const restProduct = cart.filter((product) => product.id !== individualProduct.id);
+      existingProduct.quantity += 1;
+      newCart = [...restProduct, existingProduct];
+    }
+
     setCart(newCart);
-    localDB(product.id);
+    localDB(individualProduct.id);
   };
 
   // using useEffect to find local storage value
