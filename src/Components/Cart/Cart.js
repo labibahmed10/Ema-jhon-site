@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import OrderReview from "../OrderReview/OrderReview";
 
 // main part rendering here
-const Cart = ({ cart }) => {
+const Cart = ({ cart, clearTheCart }) => {
   // console.log(cart);
 
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
@@ -34,7 +34,7 @@ const Cart = ({ cart }) => {
         <p>Tax : {tax}$</p>
         <h2>Grand Total : {grandTotal}$</h2>
 
-        <button className="btn-1">
+        <button onClick={() => clearTheCart()} className="btn-1">
           Clear Cart <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
         </button>
 

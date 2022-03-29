@@ -66,6 +66,12 @@ const Shop = () => {
     setCart(newSavedCart);
   }, [products]);
 
+  //clear the cart by removing from local storage
+  const clearTheCart = () => {
+    setCart([]);
+    localStorage.removeItem("shopping_cart");
+  };
+
   return (
     // main section under navbar
     <section className="main-container">
@@ -79,7 +85,7 @@ const Shop = () => {
       {/* cart part right side */}
       <div className="cart-container">
         {/* sending cart information */}
-        <Cart cart={cart}></Cart>
+        <Cart clearTheCart={clearTheCart} cart={cart}></Cart>
       </div>
     </section>
   );
