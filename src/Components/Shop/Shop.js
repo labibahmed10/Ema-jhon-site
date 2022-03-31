@@ -4,17 +4,12 @@ import React, { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
 import { getStoredCart, localDB } from "../LocalStorage/LocalStorage";
+import { useProducts } from "../useProduct_CustomHook/useProduct";
 
 // main rendering part here
 const Shop = () => {
   // products card state here
-  const [products, setProduct] = useState([]);
-
-  useEffect(() => {
-    fetch("products.json")
-      .then((res) => res.json())
-      .then((data) => setProduct(data));
-  }, []);
+  const [products, setProducts] = useProducts(); //using my own custom hook here
 
   //sideline cart state here
   const [cart, setCart] = useState([]);
