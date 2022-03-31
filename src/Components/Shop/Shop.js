@@ -1,65 +1,43 @@
 import "./Shop.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
 // Components
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
 import { getStoredCart, localDB } from "../LocalStorage/LocalStorage";
-import { useProducts } from "../useProduct_CustomHook/useProduct";
+import { useProducts } from "../CustomHook/useProduct";
+import useCart from "../CustomHook/useCart";
 
 // main rendering part here
 const Shop = () => {
-  // products card state here
-  const [products, setProducts] = useProducts(); //using my own custom hook here
+  // products card state here and also it is a custom hook made by me
+  const [products, setProducts] = useProducts();
 
-  //sideline cart state here
-  const [cart, setCart] = useState([]);
+  //sideline cart state here same custom hook
+  const [cart, setCart] = useCart(products);
 
   // event handler added to update cart
   const handleAddToCart = (individualProduct) => {
     let newCart = [];
     const existingProduct = cart.find((product) => product.id === individualProduct.id);
     // console.log(existingProduct.id);
-    if (!existingProduct) {
-      individualProduct.quantity = 1;
-      newCart = [...cart, individualProduct];
-    } else {
-      // ekhane restproduct hocche jegular quantity barano hoy nai segula ber kora hoice
+
+    if (existingProduct) {
+      // ekhane restproduct hocche jegular quantity barano drkr nai segula
       const restProduct = cart.filter((product) => product.id !== individualProduct.id);
+
       //jodi theke thake to existing gular quantity barano hocche
       existingProduct.quantity += 1;
-      //jegula barano hoy nai segula rest product e ase ar existing tar quantity 1 barano hoice
+
+      //jegula barano hoy nai segula rest product e ase ar existing tar quantity 1 baray newCart e save kore dilam
       newCart = [...restProduct, existingProduct];
+    } else {
+      // jodi na pawa jaay tahole bakigula quantity 1 rakhbe
+      individualProduct.quantity = 1;
+      newCart = [...cart, individualProduct];
     }
     setCart(newCart);
     localDB(individualProduct.id);
   };
-
-  // using useEffect to find local storage value
-  useEffect(() => {
-    // taken value of local storage value
-    const storedCart = getStoredCart();
-
-    // declaring newcart to send it to local storage
-    const newSavedCart = [];
-
-    // looping through every stored card
-    for (const id in storedCart) {
-      // finding added product from local storage comparing to local storage
-      //dekha hocche local srorage e thaka product id er sathe products er id mile naki
-      const addedProduct = products.find((product) => product.id === id);
-
-      //local storage e thaka same id thakle eitar quantity save kora hocche
-      if (addedProduct) {
-        const quantity = storedCart[id];
-        //click korbo jotobar totobar save hobe
-        addedProduct.quantity = quantity;
-        newSavedCart.push(addedProduct);
-      }
-    }
-    // it's better to saving set new cart after looping
-    //tar por eita daane thaka cart er state banay dicche fole updated thaktece
-    setCart(newSavedCart);
-  }, [products]);
 
   //clear the cart by removing from local storage
   const clearTheCart = () => {
