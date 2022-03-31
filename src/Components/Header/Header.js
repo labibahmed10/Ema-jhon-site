@@ -1,13 +1,15 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../Ema-John_site/images/Logo.svg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
   return (
     <header>
       <nav className="navbar">
-        <img src={logo} alt="" />
+        <img onClick={() => navigate("/home")} src={logo} alt="" />
 
         <div className="links">
           <Link to="/home">Home</Link>
