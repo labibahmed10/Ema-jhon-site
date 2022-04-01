@@ -1,7 +1,8 @@
 import React from "react";
 import "./Header.css";
 import logo from "../../Ema-John_site/images/Logo.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CustomLink from "../CustomLink/CustomLink";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -12,9 +13,10 @@ const Header = () => {
         <img onClick={() => navigate("/home")} src={logo} alt="" />
 
         <div className="links">
-          <Link to="/home">Home</Link>
-          <Link to="/order">Orders</Link>
-          <Link to="/review">Order Review</Link>
+          <CustomLink to="/home">Home</CustomLink>
+          <CustomLink to="/shop">Shop</CustomLink>
+          <CustomLink to="/review">Manage Inventory</CustomLink>
+          <CustomLink to="/about">About</CustomLink>
         </div>
       </nav>
     </header>
