@@ -10,13 +10,14 @@ import { Link } from "react-router-dom";
 // main part rendering here
 const Cart = ({ cart, clearTheCart }) => {
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
-  const singlePrice = cart.reduce((prev, curr) => prev + curr.price, 0);
 
-  const mainPrice = quantity * singlePrice;
+  const singlePrice = cart.map((i) => i.quantity * i.price);
+  const mainPrice = singlePrice.reduce((prev, curr) => prev + curr, 0);
 
-  const singleShippingCost = cart.reduce((prev, curr) => prev + curr.shipping, 0);
+  const singleShipping = cart.map((i) => i.quantity * i.shipping);
+  const ShippingCost = singleShipping.reduce((prev, curr) => prev + curr, 0);
 
-  const mainShippingCost = quantity * singleShippingCost;
+  const mainShippingCost = quantity * ShippingCost;
 
   const tax = parseFloat((mainPrice * 0.1).toFixed(2));
   const grandTotal = mainPrice + mainShippingCost + tax;

@@ -1,9 +1,8 @@
 import React from "react";
 import "./SingleCart.css";
-import { BeakerIcon, TrashIcon } from "@heroicons/react/solid";
+import { TrashIcon } from "@heroicons/react/solid";
 
 const SingleCart = ({ item }) => {
-  console.log(item);
   const { img, name, price, quantity, shipping } = item;
   return (
     <div>

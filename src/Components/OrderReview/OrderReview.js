@@ -3,10 +3,12 @@ import "./OrderReview.css";
 import SingleCart from "../Cart/SingleCart";
 import useCart from "../CustomHook/useCart";
 import { useProducts } from "../CustomHook/useProduct";
+import ReviewCart from "./ReviewCart";
 
 const OrderReview = () => {
   const [products, setProducts] = useProducts();
   const [cart, setCart] = useCart(products);
+  console.log(cart);
 
   return (
     <section className="review-container">
@@ -16,17 +18,7 @@ const OrderReview = () => {
         ))}
       </div>
       <div className="order-cart">
-        <h1>Order Summary</h1>
-
-        <h2>Selected Items: </h2>
-        <h2>Total Price: </h2>
-        <h2>Total Shipping: </h2>
-        <h2>Tax: </h2>
-
-        <h3>Grand Total: </h3>
-
-        <button className="btn-1">Clear Cart</button>
-        <button className="btn-2">Proceed Checkout</button>
+        <ReviewCart cart={cart}></ReviewCart>
       </div>
     </section>
   );
