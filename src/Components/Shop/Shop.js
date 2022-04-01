@@ -3,7 +3,7 @@ import React from "react";
 // Components
 import Cart from "../Cart/Cart";
 import Product from "../Product-single-card/Product";
-import { getStoredCart, localDB } from "../LocalStorage/LocalStorage";
+import { localDB } from "../LocalStorage/LocalStorage";
 import { useProducts } from "../CustomHook/useProduct";
 import useCart from "../CustomHook/useCart";
 

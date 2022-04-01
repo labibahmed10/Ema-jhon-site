@@ -49,7 +49,9 @@
   font-size: 1.1rem;
   text-decoration: none;
   color: aliceblue;
-  padding: 12px;
+  padding: 13px 0;
+  border: 0;
+  width: 100%;
 }
 
 .btn-1:hover {

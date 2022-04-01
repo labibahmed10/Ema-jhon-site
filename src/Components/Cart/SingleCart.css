@@ -1,0 +1,35 @@
+.review-cart {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: justify;
+  margin-top: 10px;
+  border: 1px solid grey;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.review-orders {
+  display: flex;
+}
+.review-orders img {
+  width: 6rem;
+  margin-right: 0.8rem;
+}
+
+.review-cart h1,
+p {
+  margin: 0;
+}
+
+.review-cart h1 {
+  font-size: 0.9rem;
+}
+
+.beaker {
+  width: 2rem;
+  color: lightcoral;
+  padding: 5px;
+  background-color: rgb(243, 226, 226);
+  border-radius: 50%;
+}
