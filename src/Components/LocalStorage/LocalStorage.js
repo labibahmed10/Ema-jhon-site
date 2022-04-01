@@ -34,10 +34,4 @@ const removeFromLocalStorage = (id) => {
   localStorage.setItem("shopping_cart", JSON.stringify(localStorageValue));
 };
 
-// const clearTheCart = () => {
-//   const [cart, setCart] = useCart();
-// return (setCart([]);localStorage.removeIte("shopping_cart"))
-
-// };
-
 export { localDB, getStoredCart, removeFromLocalStorage };

@@ -8,7 +8,9 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 // main part rendering here
-const Cart = ({ cart, clearTheCart }) => {
+const Cart = (props) => {
+  const { cart, clearTheCart } = props;
+  console.log(props.children.props.children);
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
 
   const singlePrice = cart.map((i) => i.quantity * i.price);
@@ -37,7 +39,7 @@ const Cart = ({ cart, clearTheCart }) => {
         </button>
 
         <Link to="/review" className="btn-2">
-          Review Order <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
+          {props.children} <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
         </Link>
       </div>
     </section>

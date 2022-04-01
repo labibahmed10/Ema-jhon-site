@@ -3,7 +3,8 @@ import "./OrderReview.css";
 import SingleCart from "../Cart/SingleCart";
 import useCart from "../CustomHook/useCart";
 import { useProducts } from "../CustomHook/useProduct";
-import ReviewCart from "./ReviewCart";
+
+import Cart from "../Cart/Cart";
 import { removeFromLocalStorage } from "../LocalStorage/LocalStorage";
 
 const OrderReview = () => {
@@ -29,8 +30,11 @@ const OrderReview = () => {
         ))}
       </div>
       <div className="order-cart">
-        <ReviewCart clearTheCart={clearTheCart} cart={cart}></ReviewCart>
-        {/* <Cart clearTheCart={clearTheCart} cart={cart}></Cart> */}
+        {/* <ReviewCart clearTheCart={clearTheCart} cart={cart}></ReviewCart> */}
+        <Cart clearTheCart={clearTheCart} cart={cart}>
+          <p>Proceed Checkout</p>
+        </Cart>
+        {/* using the same state of cart don't need another */}
       </div>
     </section>
   );

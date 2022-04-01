@@ -13,32 +13,26 @@
 }
 
 .order-cart {
-  background-color: rgb(255, 224, 178);
   padding: 30px;
-  height: 30rem;
-  width: 24rem;
+  height: 32rem;
+  width: 26rem;
   color: rgba(42, 65, 79, 1);
   border-radius: 10px;
 }
 
 .order-cart h1 {
   text-align: center;
-  font-size: 2.1rem;
+  font-size: 2.2rem;
   font-weight: 500;
   margin-bottom: 0;
 }
 
 .order-cart h2 {
-  font-size: 1.3rem;
+  font-size: 1.8rem;
   margin: 1.5rem 0;
   font-weight: 500;
 }
 
-.order-cart h3 {
-  font-size: 1.8rem;
-  font-weight: 500;
-}
-
 .order-cart .btn-1 {
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }

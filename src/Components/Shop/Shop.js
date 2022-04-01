@@ -58,7 +58,11 @@ const Shop = () => {
       {/* cart part right side */}
       <div className="cart-container">
         {/* sending cart information */}
-        <Cart clearTheCart={clearTheCart} cart={cart}></Cart>
+        <Cart clearTheCart={clearTheCart} cart={cart}>
+          <p>Review Order</p>
+        </Cart>
+        {/* ekhane children akare 1st e 
+        p tag er likha ta pathailam*/}
       </div>
     </section>
   );
