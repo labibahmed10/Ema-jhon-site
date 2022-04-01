@@ -1,6 +1,6 @@
 import React from "react";
 
-const ReviewCart = ({ cart }) => {
+const ReviewCart = ({ cart, clearTheCart }) => {
   console.log(cart);
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
 
@@ -25,7 +25,9 @@ const ReviewCart = ({ cart }) => {
 
       <h3>Grand Total: {totalCost}</h3>
 
-      <button className="btn-1">Clear Cart</button>
+      <button onClick={() => clearTheCart()} className="btn-1">
+        Clear Cart
+      </button>
       <button className="btn-2">Proceed Checkout</button>
     </div>
   );

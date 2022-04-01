@@ -24,8 +24,20 @@ const localDB = (id) => {
   localStorage.setItem("shopping_cart", JSON.stringify(localStrgValue));
 };
 
+const removeFromLocalStorage = (id) => {
+  const localStorageValue = getStoredCart();
+
+  if (id in localStorageValue) {
+    delete localStorageValue[id];
+  }
+
+  localStorage.setItem("shopping_cart", JSON.stringify(localStorageValue));
+};
+
 // const clearTheCart = () => {
-//   localStorage.removeItem("shopping_cart");
+//   const [cart, setCart] = useCart();
+// return (setCart([]);localStorage.removeIte("shopping_cart"))
+
 // };
 
-export { localDB, getStoredCart };
+export { localDB, getStoredCart, removeFromLocalStorage };

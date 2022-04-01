@@ -2,7 +2,7 @@ import React from "react";
 import "./SingleCart.css";
 import { TrashIcon } from "@heroicons/react/solid";
 
-const SingleCart = ({ item }) => {
+const SingleCart = ({ item, removeSingleCart }) => {
   const { img, name, price, quantity, shipping } = item;
   return (
     <div>
@@ -16,7 +16,7 @@ const SingleCart = ({ item }) => {
             <p>Piece: {quantity}</p>
           </div>
         </div>
-        <TrashIcon className="beaker"></TrashIcon>
+        <TrashIcon onClick={() => removeSingleCart(item)} className="delete"></TrashIcon>
       </div>
     </div>
   );

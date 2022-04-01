@@ -9,27 +9,29 @@
   overflow-y: auto;
   height: 31rem;
   padding: 10px;
+  width: 28rem;
 }
 
 .order-cart {
-  background-color: rgba(255, 153, 0, 0.3);
+  background-color: rgb(255, 224, 178);
   padding: 30px;
-  height: 29rem;
-  width: 20rem;
+  height: 30rem;
+  width: 24rem;
   color: rgba(42, 65, 79, 1);
   border-radius: 10px;
 }
 
 .order-cart h1 {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.1rem;
   font-weight: 500;
+  margin-bottom: 0;
 }
 
 .order-cart h2 {
   font-size: 1.3rem;
-  margin: 10px 0;
-  font-weight: 400;
+  margin: 1.5rem 0;
+  font-weight: 500;
 }
 
 .order-cart h3 {

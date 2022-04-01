@@ -28,10 +28,11 @@ p {
   font-size: 0.8rem;
 }
 
-.beaker {
+.delete {
   width: 2rem;
   color: lightcoral;
   padding: 5px;
   background-color: rgb(243, 226, 226);
   border-radius: 50%;
+  cursor: pointer;
 }
