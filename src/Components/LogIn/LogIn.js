@@ -3,14 +3,13 @@ import { Link } from "react-router-dom";
 
 const LogIn = () => {
   return (
-    <div>
-      <div className="w-96 mx-auto px-5 py-3 text-[#2A414F]">
+    <div className="flex items-center h-[90vh]">
+      <div className="w-96 mx-auto px-7 py-5  text-[#2A414F] border border-[#2A414F] rounded-lg">
         <h1 className="text-center text-4xl font-semibold mb-4 text-[#2A414F]">Sign Up</h1>
         <div className="my-4">
-          <label className="text-xl font-semibold" htmlFor="email">
+          <label className="text-xl font-semibold  block pb-1" htmlFor="email">
             Email
           </label>
-          <br />
           <input
             className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
             type="email"
@@ -19,10 +18,10 @@ const LogIn = () => {
           />
         </div>
         <div className="my-4">
-          <label className="text-xl font-semibold" htmlFor="password">
+          <label className="text-xl font-semibold block pb-1" htmlFor="password">
             Password
           </label>
-          <br />
+
           <input
             className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
             type="password"
@@ -31,10 +30,10 @@ const LogIn = () => {
           />
         </div>
         <div className="my-4">
-          <label className="text-xl font-semibold" htmlFor="confirmpassword">
+          <label className="text-xl font-semibold block pb-1" htmlFor="confirmpassword">
             Confirm Password
           </label>
-          <br />
+
           <input
             className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
             type="password"
@@ -43,7 +42,7 @@ const LogIn = () => {
           />
         </div>
         <input
-          className="text-center mx-auto py-3 w-full mb-1 mt-3 bg-[#ff990073] rounded-md"
+          className="text-center mx-auto py-3 w-full mb-1 mt-2 bg-[#ff990073] rounded-md"
           type="submit"
           value="
         Sign Up"
@@ -54,6 +53,15 @@ const LogIn = () => {
             Login
           </Link>
         </p>
+
+        <div className="flex items-center justify-center w-full mt-5 p-2 border">
+          <img
+            className="w-7 "
+            src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png"
+            alt=""
+          />
+          <p className="pl-2">Continue With Google</p>
+        </div>
       </div>
     </div>
   );
