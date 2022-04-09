@@ -9,6 +9,7 @@ import Home from "./Components/HomePage/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import OrderReview from "./Components/OrderReview/OrderReview";
 import LogIn from "./Components/LogIn/LogIn";
+import SignUp from "./Components/SignUp/SignUp";
 
 function App() {
   useEffect(() => {
@@ -26,6 +27,7 @@ function App() {
         <Route path="/review" element={<OrderReview></OrderReview>}></Route>
 
         <Route path="/login" element={<LogIn></LogIn>}></Route>
+        <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>
