@@ -11,7 +11,7 @@ const SignUp = () => {
             Email
           </label>
           <input
-            className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
+            className="border border-[#95A0A7] rounded-md w-full py-3 px-3 focus:outline-[0.01rem] outline-[#FFD18C]"
             type="email"
             name="email"
             placeholder="Email here"
@@ -23,7 +23,7 @@ const SignUp = () => {
           </label>
 
           <input
-            className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
+            className="border border-[#95A0A7] rounded-md w-full py-3 px-3 focus:outline-[0.01rem] outline-[#FFD18C]"
             type="password"
             name="password"
             placeholder="Password here"
@@ -35,7 +35,7 @@ const SignUp = () => {
           </label>
 
           <input
-            className="border border-[#95A0A7] rounded-md w-full py-3 px-3"
+            className="border border-[#95A0A7] rounded-md w-full py-3 px-3 focus:outline-[0.01rem] outline-[#FFD18C]"
             type="password"
             name="confirmpassword"
             placeholder="Confrim Password"
