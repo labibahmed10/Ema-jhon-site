@@ -8,6 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Components/HomePage/Home";
 import NotFound from "./Components/NotFound/NotFound";
 import OrderReview from "./Components/OrderReview/OrderReview";
+import LogIn from "./Components/LogIn/LogIn";
 
 function App() {
   useEffect(() => {
@@ -23,6 +24,8 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/shop" element={<Shop></Shop>}></Route>
         <Route path="/review" element={<OrderReview></OrderReview>}></Route>
+
+        <Route path="/login" element={<LogIn></LogIn>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
     </div>

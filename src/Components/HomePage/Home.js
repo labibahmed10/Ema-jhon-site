@@ -14,7 +14,9 @@ const Home = () => {
           <h4>Discover all the new arrivals of ready-to-wear collection.</h4>
         </div>
 
-        <Link className="shop-now" to="/order">SHOP NOW</Link>
+        <Link className="shop-now" to="/shop">
+          SHOP NOW
+        </Link>
       </div>
 
       <div className="image-part">

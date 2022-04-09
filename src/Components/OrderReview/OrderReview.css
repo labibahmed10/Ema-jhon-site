@@ -7,15 +7,15 @@
 
 .review-all {
   overflow-y: auto;
-  height: 31rem;
+  height: 33rem;
   padding: 10px;
   width: 28rem;
 }
 
 .order-cart {
   padding: 30px;
-  height: 32rem;
-  width: 26rem;
+  height: 35rem;
+  width: 28rem;
   color: rgba(42, 65, 79, 1);
   border-radius: 10px;
 }
@@ -29,10 +29,10 @@
 
 .order-cart h2 {
   font-size: 1.8rem;
-  margin: 1.5rem 0;
+  margin: 1.3rem 0;
   font-weight: 500;
 }
 
 .order-cart .btn-1 {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
