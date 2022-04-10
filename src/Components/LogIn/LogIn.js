@@ -62,7 +62,7 @@ const LogIn = () => {
             />
           </div>
           {loading && <p>Loading...</p>}
-          <p>{error?.message}</p>
+          <p className="text-red-500">{error?.message}</p>
           <input
             className="text-center mx-auto py-3 w-full mb-1 mt-2 bg-[#ff990073] rounded-md font-semibold hover:bg-[#ff9900a1] cursor-pointer"
             type="submit"
