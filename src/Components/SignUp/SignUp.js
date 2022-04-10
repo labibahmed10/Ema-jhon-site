@@ -37,16 +37,16 @@ const SignUp = () => {
 
     createUserWithEmailAndPassword(email, password);
   };
-  console.log(user);
+
   if (user) {
-    navigate("/home");
+    navigate("/login");
   }
 
   return (
     <div className="flex items-center h-[90vh]">
       <div className="w-96 mx-auto px-7 py-5  text-[#2A414F] border border-[#2A414F] rounded-lg shadow-2xl">
         <h1 className="text-center text-4xl font-semibold mb-4 text-[#2A414F]">Sign Up</h1>
-        <form action="" onSubmit={handleSubmitUser}>
+        <form onSubmit={handleSubmitUser}>
           <div className="my-4">
             <label className="text-xl font-semibold  block pb-1" htmlFor="email">
               Email

@@ -37,7 +37,7 @@ const Cart = (props) => {
           Clear Cart <FontAwesomeIcon icon={faTrashAlt}></FontAwesomeIcon>
         </button>
 
-        <Link to="/review" className="btn-2">
+        <Link to="/inventory" className="btn-2">
           {props.children} <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
         </Link>
       </div>

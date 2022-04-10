@@ -1,6 +1,6 @@
 .navbar {
   background-color: rgba(28, 43, 53, 1);
-  padding: 10px 60px;
+  padding: 10px 50px;
   height: 70px;
   display: flex;
   justify-content: space-between;
@@ -19,7 +19,7 @@
 .links a {
   text-decoration: none;
   color: aliceblue;
-  padding: 8px 5px;
+  padding: 6px 2px;
   font-size: 1.1em;
 }
 

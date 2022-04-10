@@ -11,6 +11,7 @@ import OrderReview from "./Components/OrderReview/OrderReview";
 import LogIn from "./Components/LogIn/LogIn";
 import SignUp from "./Components/SignUp/SignUp";
 import ManageInventory from "./Components/ManageInventoy/ManageInventory";
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
 
 function App() {
   useEffect(() => {
@@ -26,7 +27,14 @@ function App() {
         <Route path="/home" element={<Home></Home>}></Route>
         <Route path="/shop" element={<Shop></Shop>}></Route>
         <Route path="/order" element={<OrderReview></OrderReview>}></Route>
-        <Route path="/inventory" element={<ManageInventory></ManageInventory>}></Route>
+        <Route
+          path="/inventory"
+          element={
+            <RequireAuth>
+              <ManageInventory></ManageInventory>
+            </RequireAuth>
+          }
+        ></Route>
         <Route path="/login" element={<LogIn></LogIn>}></Route>
         <Route path="/signup" element={<SignUp></SignUp>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
