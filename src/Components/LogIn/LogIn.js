@@ -1,5 +1,10 @@
 import React, { useState } from "react";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithFacebook,
+  useSignInWithGithub,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 
@@ -13,6 +18,12 @@ const LogIn = () => {
   const from = locaton?.state?.from?.pathname || "/";
 
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
+
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
+
+  const [signInWithGithub] = useSignInWithGithub(auth);
+
+  const [signInWithFacebook] = useSignInWithFacebook(auth);
 
   const handleEmailInput = (event) => {
     setEmail(event.target.value);
@@ -64,7 +75,7 @@ const LogIn = () => {
               autoComplete="false"
             />
           </div>
-          {loading && <p>Loading...</p>}
+
           <p className="text-red-500">{error?.message}</p>
           <input
             className="text-center mx-auto py-3 w-full mb-1 mt-2 bg-[#ff990073] rounded-md font-semibold hover:bg-[#ff9900a1] cursor-pointer"
@@ -85,7 +96,10 @@ const LogIn = () => {
             <hr className="w-1/2" />
           </div>
 
-          <div className="flex items-center justify-center w-full mt-4 p-1 border cursor-pointer">
+          <div
+            onClick={() => signInWithGoogle()}
+            className="flex items-center justify-center w-full mt-4 p-1 border cursor-pointer"
+          >
             <img
               className="w-7"
               src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-icon-png-transparent-background-osteopathy-16.png"
@@ -93,7 +107,10 @@ const LogIn = () => {
             />
             <p className="pl-2">Continue With Google</p>
           </div>
-          <div className="flex items-center justify-center w-full mt-2 p-1 border cursor-pointer">
+          <div
+            onClick={() => signInWithFacebook()}
+            className="flex items-center justify-center w-full mt-2 p-1 border cursor-pointer"
+          >
             <img
               className="w-7 "
               src="https://image.similarpng.com/very-thumbnail/2020/04/Popular-facebook-Logo-png.png"
@@ -101,7 +118,10 @@ const LogIn = () => {
             />
             <p className="pl-2">Continue With Facebook</p>
           </div>
-          <div className="flex items-center justify-center w-full mt-2 p-1 border cursor-pointer">
+          <div
+            onClick={() => signInWithGithub()}
+            className="flex items-center justify-center w-full mt-2 p-1 border cursor-pointer"
+          >
             <img
               className="w-7 "
               src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
