@@ -1,12 +1,18 @@
 import React from "react";
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Spinner from "../Spinner/Spinner";
 const CommonUserSignIn = () => {
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, user, loading] = useSignInWithGoogle(auth);
 
-  const [signInWithGithub] = useSignInWithGithub(auth);
+  const [signInWithGithub, Guser, Gloading] = useSignInWithGithub(auth);
 
-  const [signInWithFacebook] = useSignInWithFacebook(auth);
+  const [signInWithFacebook, Fuser, Floading] = useSignInWithFacebook(auth);
+
+  if (loading || Gloading || Floading) {
+    return <Spinner></Spinner>;
+  }
+
   return (
     <div>
       <div className="flex items-center pt-2">
