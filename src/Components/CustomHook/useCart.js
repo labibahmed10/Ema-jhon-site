@@ -6,7 +6,11 @@ const useCart = (products) => {
 
   useEffect(() => {
     const storedCart = getStoredCart();
+
     const savedCart = [];
+
+    const keys = Object.keys(savedCart);
+    console.log(keys);
 
     for (const id in storedCart) {
       const addededProduct = products.find((item) => item._id === id);

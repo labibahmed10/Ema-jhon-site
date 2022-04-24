@@ -14,7 +14,6 @@ const useProducts = () => {
     fetch("http://localhost:5000/productPerPage")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         const pagesCount = data.pages;
         const pages = Math.ceil(pagesCount / 15);
         setPages(pages);

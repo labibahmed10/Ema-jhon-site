@@ -9,8 +9,12 @@ import useCart from "../CustomHook/useCart";
 
 // main rendering part here
 const Shop = () => {
-  // products card state here and also it is a custom hook made by me
-  const [products, setProducts, pages] = useProducts();
+  // products card state here and also it is a custom hook made by me..a,b is writen because them loaded data will have no work cz i have in nex i have loaded dynamic data for pagination
+  const [a, b, pages] = useProducts();
+
+  //setting states of products again bcz now we will set them by dynamic and also will load them dynamic
+
+  const [products, setProducts] = useState([]);
 
   //sideline cart state here same custom hook
   const [cart, setCart] = useCart(products);
@@ -76,7 +80,7 @@ const Shop = () => {
               onClick={() => setPageNo(number)}
               className={` p-3 ${pageNo === number ? "bg-[#FF9900]" : "bg-yellow-100"}`}
             >
-              {number}
+              {number + 1}
             </button>
           ))}
           {

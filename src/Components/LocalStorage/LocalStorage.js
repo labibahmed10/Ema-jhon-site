@@ -11,7 +11,6 @@ const getStoredCart = () => {
 };
 
 const localDB = (id) => {
-  console.log(id);
   let localStrgValue = getStoredCart();
 
   const itemQuantity = localStrgValue[id];
