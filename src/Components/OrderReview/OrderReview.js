@@ -12,8 +12,8 @@ const OrderReview = () => {
   const [cart, setCart] = useCart(products);
 
   const removeSingleCart = (product) => {
-    const deleteIndividual = cart.filter((pro) => pro.id !== product.id);
-    removeFromLocalStorage(product.id);
+    const deleteIndividual = cart.filter((pro) => pro._id !== product._id);
+    removeFromLocalStorage(product._id);
     setCart(deleteIndividual);
   };
 
@@ -26,7 +26,7 @@ const OrderReview = () => {
     <section className="review-container">
       <div className="review-all">
         {cart.map((item) => (
-          <SingleCart key={item.id} item={item} removeSingleCart={removeSingleCart}></SingleCart>
+          <SingleCart key={item._id} item={item} removeSingleCart={removeSingleCart}></SingleCart>
         ))}
       </div>
       <div className="order-cart">
