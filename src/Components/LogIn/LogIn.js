@@ -4,15 +4,17 @@ import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import CommonUserSignIn from "../CommonUserSignin/CommonUserSignIn";
+import Spinner from "../Spinner/Spinner";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error1, setError] = useState("");
-  const navigate = useNavigate();
-  const locaton = useLocation();
 
-  const from = locaton?.state?.from?.pathname || "/";
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const from = location?.state?.from?.pathname || "/";
 
   const [signInWithEmailAndPassword, user, loading, error] = useSignInWithEmailAndPassword(auth);
 
@@ -28,6 +30,10 @@ const LogIn = () => {
 
     signInWithEmailAndPassword(email, password);
   };
+
+  if (loading) {
+    return <Spinner></Spinner>;
+  }
 
   if (user) {
     navigate(from, { replace: true });

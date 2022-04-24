@@ -1,8 +1,13 @@
 import React from "react";
 import { useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle } from "react-firebase-hooks/auth";
+import { useLocation, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import Spinner from "../Spinner/Spinner";
 const CommonUserSignIn = () => {
+  const navigate = useNavigate();
+  const locaton = useLocation();
+  const from = locaton?.state?.from?.pathname || "/";
+
   const [signInWithGoogle, user, loading] = useSignInWithGoogle(auth);
 
   const [signInWithGithub, Guser, Gloading] = useSignInWithGithub(auth);
@@ -11,6 +16,10 @@ const CommonUserSignIn = () => {
 
   if (loading || Gloading || Floading) {
     return <Spinner></Spinner>;
+  }
+
+  if (user || Guser || Fuser) {
+    navigate(from, { replace: true });
   }
 
   return (

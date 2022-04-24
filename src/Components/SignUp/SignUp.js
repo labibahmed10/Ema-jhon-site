@@ -1,13 +1,9 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {
-  useCreateUserWithEmailAndPassword,
-  useSignInWithFacebook,
-  useSignInWithGithub,
-  useSignInWithGoogle,
-} from "react-firebase-hooks/auth";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import CommonUserSignIn from "../CommonUserSignin/CommonUserSignIn";
+import Spinner from "../Spinner/Spinner";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
@@ -15,15 +11,12 @@ const SignUp = () => {
   const [confirmPass, setConfirmPass] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  const locaton = useLocation();
+  const from = locaton?.state?.from?.pathname || "/";
 
-  const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, {
+  const [createUserWithEmailAndPassword, user, Cloading, Cerror] = useCreateUserWithEmailAndPassword(auth, {
     sendEmailVerification: true,
   });
-  const [signInWithGoogle] = useSignInWithGoogle(auth);
-
-  const [signInWithGithub] = useSignInWithGithub(auth);
-
-  const [signInWithFacebook] = useSignInWithFacebook(auth);
 
   const handleEmailInput = (event) => {
     setEmail(event.target.value);
@@ -42,6 +35,8 @@ const SignUp = () => {
     if (password !== confirmPass) {
       setError("Password must need to be matched!");
       return;
+    } else if (Cerror) {
+      setError(Cerror);
     } else {
       setError("");
     }
@@ -49,8 +44,12 @@ const SignUp = () => {
     createUserWithEmailAndPassword(email, password);
   };
 
+  if (Cloading) {
+    return <Spinner></Spinner>;
+  }
+
   if (user) {
-    navigate("/login");
+    navigate(from, { replace: true });
   }
 
   return (
@@ -101,6 +100,8 @@ const SignUp = () => {
               autoComplete="false"
             />
           </div>
+
+          {/* error here  */}
           <p className="text-red-500">{error}</p>
 
           <input
@@ -110,7 +111,7 @@ const SignUp = () => {
         Sign Up"
           />
           <p className="text-center text-sm">
-            Already have an account?{" "}
+            Already have an account?
             <Link className="text-[#ff9900] underline" to="/login">
               Login
             </Link>
