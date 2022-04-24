@@ -17,7 +17,7 @@ const Shop = () => {
   const [products, setProducts] = useState([]);
 
   //sideline cart state here same custom hook
-  const [cart, setCart] = useCart(products);
+  const [cart, setCart] = useCart();
 
   //setting state for button of pagination
   const [pageNo, setPageNo] = useState(0);

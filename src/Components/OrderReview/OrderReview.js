@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./OrderReview.css";
 import SingleCart from "../Cart/SingleCart";
 import useCart from "../CustomHook/useCart";
@@ -8,7 +8,7 @@ import Cart from "../Cart/Cart";
 import { removeFromLocalStorage } from "../LocalStorage/LocalStorage";
 
 const OrderReview = () => {
-  const [products, setProducts] = useProducts();
+  const [products] = useProducts();
   const [cart, setCart] = useCart(products);
 
   const removeSingleCart = (product) => {
