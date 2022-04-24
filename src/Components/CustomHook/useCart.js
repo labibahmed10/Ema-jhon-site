@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getStoredCart } from "../LocalStorage/LocalStorage";
 
-const useCart = (products) => {
+const useCart = () => {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
@@ -9,19 +9,32 @@ const useCart = (products) => {
 
     const savedCart = [];
 
-    const keys = Object.keys(savedCart);
+    const keys = Object.keys(storedCart);
     console.log(keys);
 
-    for (const id in storedCart) {
-      const addededProduct = products.find((item) => item._id === id);
+    fetch("http://localhost:5000/productForCart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(keys),
+    })
+      .then((res) => res.json())
+      .then((products) => {
+        console.log(products);
 
-      if (addededProduct) {
-        addededProduct.quantity = storedCart[id];
-        savedCart.push(addededProduct);
-      }
-    }
+        for (const id in storedCart) {
+          const addededProduct = products.find((item) => item._id === id);
+
+          if (addededProduct) {
+            addededProduct.quantity = storedCart[id];
+            savedCart.push(addededProduct);
+          }
+        }
+      });
+
     setCart(savedCart);
-  }, [products]);
+  }, []);
 
   return [cart, setCart];
 };

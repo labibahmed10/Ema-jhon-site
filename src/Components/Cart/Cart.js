@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 // main part rendering here
 const Cart = (props) => {
   const { cart, clearTheCart } = props;
-
+  console.log(cart);
   const quantity = cart.reduce((prev, curr) => prev + curr.quantity, 0);
 
   const singlePrice = cart.map((i) => i.quantity * i.price);
@@ -19,10 +19,8 @@ const Cart = (props) => {
   const singleShipping = cart.map((i) => i.quantity * i.shipping);
   const ShippingCost = singleShipping.reduce((prev, curr) => prev + curr, 0);
 
-  const mainShippingCost = quantity * ShippingCost;
-
   const tax = parseFloat((mainPrice * 0.1).toFixed(2));
-  const grandTotal = mainPrice + mainShippingCost + tax;
+  const grandTotal = mainPrice + ShippingCost + tax;
 
   return (
     <section className="main-cart">
@@ -30,7 +28,7 @@ const Cart = (props) => {
         <h1>Order Summary</h1>
         <p>Selected Item : {quantity}</p>
         <p>Total Price : {mainPrice}$</p>
-        <p>Total Shipping Price : {mainShippingCost}$</p>
+        <p>Total Shipping Price : {ShippingCost}$</p>
         <p>Tax : {tax}$</p>
         <h2>Grand Total : {grandTotal}$</h2>
 
